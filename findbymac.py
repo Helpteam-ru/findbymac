@@ -56,7 +56,7 @@ if __name__ == "__main__":
             d=l.groupdict()
             print(f"Parsing {dev['ip']}...",end="\r")
             d['MAC']=d['MAC'].replace(":","").replace("-","").upper()
-            if d["if"] in trunks: continue #do not report MAC as found if it is in trunk port
+            if d["if"] in dev['trunks']: continue #do not report MAC as found if it is in trunk port
             if d['MAC'].find(findMAC)!=-1:
                 if not found:
                     print(f"SWITCH         MAC        VLAN interface")
